@@ -1,0 +1,13 @@
+# /etc/systemd/system/overlay.service
+[Unit]
+After=chromium.service
+Description=Screen control overlay
+Wants=chromium.service
+
+[Service]
+User=weston
+ExecStart=/usr/local/bin/overlay
+Restart=on-failure
+
+[Install]
+WantedBy=weston.service

@@ -1,0 +1,12 @@
+# /etc/systemd/system/weston.service
+[Unit]
+Description=Wayland compositor
+
+[Service]
+User=weston
+ExecStart=/usr/bin/weston --log=/var/log/weston.log
+Restart=always
+Environment=MOZ_ENABLE_WAYLAND=1 XDG_SESSION_TYPE=wayland
+
+[Install]
+WantedBy=graphical.target
